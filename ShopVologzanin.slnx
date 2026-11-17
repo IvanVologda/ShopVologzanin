@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="ShopVologzanin/ShopVologzanin.vcxproj" />
+  <Project Path="ShopVologzanin/ShopVologzanin.vcxproj" Id="9c989a9f-268e-4bfb-b269-a59fbb01cf64" />
 </Solution>
