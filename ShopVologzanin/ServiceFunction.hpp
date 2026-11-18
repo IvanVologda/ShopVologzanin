@@ -8,6 +8,8 @@
 
 void GetLine(std::wstring& str);
 
+bool IsNumber(const std::wstring& str);
+
 __forceinline void Err()
 {
 	std::wcout << L"Некорректный ввод";

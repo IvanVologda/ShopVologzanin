@@ -63,7 +63,7 @@ bool Login()
 			}
 		}
 
-		std::wcout << "Неверный логи или пароль. Повторите попытку\n\n";
+		std::wcout << L"Неверный логи или пароль. Повторите попытку\n\n";
 		Sleep(1500);
 	}
 
@@ -99,11 +99,11 @@ void SuperAdminMenu()
 		}
 		else if (choose == L"3")
 		{
-
+			AddProduct();
 		}
 		else if (choose == L"4")
 		{
-
+			RemoveProduct();
 		}
 		else if (choose == L"5")
 		{
