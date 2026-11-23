@@ -21,6 +21,13 @@ int main()
 		delete[] priceArr;
 	}
 
+	if (isListCreated)
+	{
+		delete[] listProduct;
+		delete[] countProduct;
+		delete[] priceProduct;
+	}
+
 	return 0;
 }
 

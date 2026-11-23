@@ -1,5 +1,6 @@
 #include "Storage.hpp"
 
+
 size_t sizeSt = 0;
 size_t* idArr = nullptr;
 std::wstring* nameArr;
@@ -28,7 +29,7 @@ void CreateStorage(int mode)
 		};
 
 		size_t countArrStatic[staticSize]{ 120, 150, 200, 60, 75, 35, 10, 170, 110, 65 };
-		double priceArrStatic[staticSize]{ 2400, 1000, 1200, 1100, 2500, 2300, 6000, 1100, 1900, 1400,  };
+		double priceArrStatic[staticSize]{ 2400, 1000, 1200, 1100, 2500, 2300, 6000, 1100, 1900, 1400, };
 
 		idArr = new size_t[sizeSt];
 		nameArr = new std::wstring[sizeSt];
@@ -36,7 +37,7 @@ void CreateStorage(int mode)
 		priceArr = new double[sizeSt];
 
 		FillArray(idArr, idArrStatic, sizeSt);
-		FillArray(nameArr, nameArrStatic,sizeSt);
+		FillArray(nameArr, nameArrStatic, sizeSt);
 		FillArray(countArr, countArrStatic, sizeSt);
 		FillArray(priceArr, priceArrStatic, sizeSt);
 
@@ -70,10 +71,10 @@ void ShowStorage(int mode)
 
 		for (size_t i = 0; i < sizeSt; i++)
 		{
-			std::wcout << idArr[i] << L"\t" << std::fixed <<std::left << std::setw(39) << nameArr[i]
+			std::wcout << idArr[i] << L"\t" << std::fixed << std::left << std::setw(39) << nameArr[i]
 				<< L"\t\t" << countArr[i] << L"\t" << std::setprecision(2) << priceArr[i] << L"\n";
 		}
-		
+
 		std::wcout << L"\n\n";
 		system("pause");
 	}
@@ -166,6 +167,19 @@ void AddProduct()
 						std::wcout << L"Некоректное количество! на складе осталось " << maxStorageSize - currentStorageSize << L" свободных мест";
 						Sleep(1500);
 					}
+					else if (countProduct[id] == 0)
+					{
+						std::wcout << L"Товара нет у поставщика!\n\n";
+						Sleep(1500);
+						break;
+					}
+					else if (countProduct[id] < count)
+					{
+						std::wcout << L"Не хватает товара у поставщика!\n\n";
+						std::wcout << L"У поставщика осталось " << countProduct[id] << " " << listProduct[id] << "\n\n";
+						Sleep(1500);
+						break;
+					}
 					else
 					{
 						while (true)
@@ -179,6 +193,8 @@ void AddProduct()
 								std::wcout << L"Товар успешно пополнен!\n\n";
 								countArr[id] += count;
 								currentStorageSize += count;
+								countProduct[id] -= count;
+								std::wcout << L"У поставщика осталось " << countProduct[id] << " " << listProduct[id] << "\n\n";
 								Sleep(1500);
 								break;
 							}

@@ -2,6 +2,7 @@
 #define _STORAGE_HPP_
 
 #include "ServiceFunction.hpp"
+#include "Suplier.hpp"
 
 extern size_t sizeSt;
 extern size_t* idArr;
