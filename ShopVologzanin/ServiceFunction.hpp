@@ -5,10 +5,13 @@
 #include <string>
 #include <Windows.h>
 #include <iomanip>
+#include <cwctype>
 
 void GetLine(std::wstring& str);
 
 bool IsNumber(const std::wstring& str);
+
+bool IsNotSame(const std::wstring& str, std::wstring* nameArr, size_t arrSize);
 
 __forceinline void Err()
 {
@@ -25,4 +28,18 @@ void FillArray(ArrType* dynamicArray, ArrType* staticArr, size_t commonSize)
 	}
 }
 
+template <class ArrType>
+void ArrPushBack(ArrType*& arr, size_t arrSize)
+{
+	arrSize++;
+	ArrType* temp = new ArrType[arrSize]{};
+
+	for (size_t i = 0; i < arrSize - 1; i++)
+	{
+		temp[i] = arr[i];
+	}
+
+	std::swap(arr, temp);
+	delete[]temp;
+}
 #endif // !_SERVICE_FUNCTION_HPP_

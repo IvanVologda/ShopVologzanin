@@ -23,4 +23,7 @@ void AddProduct();
 void RemoveProduct();
 void ChangePrice();
 
+void ChangeStorage();
+void AddNewProduct();
+
 #endif // !_STORAGE_HPP_
