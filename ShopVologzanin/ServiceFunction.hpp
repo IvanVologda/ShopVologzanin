@@ -6,6 +6,7 @@
 #include <Windows.h>
 #include <iomanip>
 #include <cwctype>
+#include <unordered_set>
 
 void GetLine(std::wstring& str);
 
@@ -37,6 +38,24 @@ void ArrPushBack(ArrType*& arr, size_t arrSize)
 	for (size_t i = 0; i < arrSize - 1; i++)
 	{
 		temp[i] = arr[i];
+	}
+
+	std::swap(arr, temp);
+	delete[]temp;
+}
+
+template <class ArrType>
+void ArrDeleteByIndex(ArrType*& arr, size_t arrSize, size_t index)
+{
+	arrSize--;
+	ArrType* temp = new ArrType[arrSize];
+
+	for (size_t i = 0, j = 0; i < arrSize; i++,j++)
+	{
+		if (j == index)
+			j++;
+
+		temp[i] = arr[j];
 	}
 
 	std::swap(arr, temp);

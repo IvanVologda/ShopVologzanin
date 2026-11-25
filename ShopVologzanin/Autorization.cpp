@@ -95,19 +95,19 @@ void SuperAdminMenu()
 		{
 
 		}
-		else if (choose == L"2")
+		else if (choose == L"2" || sizeSt > 0)
 		{
 			ShowStorage();
 		}
-		else if (choose == L"3")
+		else if (choose == L"3" || sizeSt > 0)
 		{
 			AddProduct();
 		}
-		else if (choose == L"4")
+		else if (choose == L"4" || sizeSt > 0)
 		{
 			RemoveProduct();
 		}
-		else if (choose == L"5")
+		else if (choose == L"5" || sizeSt > 0)
 		{
 			ChangePrice();
 		}

@@ -1,7 +1,7 @@
 #ifndef _STORAGE_HPP_
 #define _STORAGE_HPP_
 
-#include "ServiceFunction.hpp"
+#include "Accounts.hpp"
 #include "Suplier.hpp"
 
 extern size_t sizeSt;
@@ -25,5 +25,8 @@ void ChangePrice();
 
 void ChangeStorage();
 void AddNewProduct();
+void ChangeProductName();
+void DeleteProduct();
+void ChangeStorageLimits();
 
 #endif // !_STORAGE_HPP_
